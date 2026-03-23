@@ -1,28 +1,73 @@
-# Vehicle Damange Detection App
+# 🚗 Car Damage Detection AI
 
-This app let's you drag and drop an image of a car and it will tell you what kind of damage it has.
-The model is trained on third quarter front and rare view hence the picture should capture the third quarter front or rare view of a car. 
+An AI-powered web application that detects and classifies car damage from images using Deep Learning.
 
-![app](app_screenshot.jpg)
+🌐 **Live Demo:**  
+https://car-damage-detection-ai-mohamed-aslam.streamlit.app/
 
-### Model Details
-1. Used ResNet50 for transfer learning
-2. Model was trained on around 1700 images with 6 target classes
-   1. Front Normal
-   1. Front Crushed
-   1. Front Breakage
-   1. Rear Normal
-   1. Rear Crushed
-   1. Rear Breakage
-9. The accuracy on the validation set was around 80%
+---
 
-### Set Up
+## 📌 Overview
 
-1. To get started, first install the dependencies using:
-    ```commandline
-     pip install -r requirements.txt
-    ```
-   
-2. Run the streamlit app:
-   ```commandline
-   streamlit run app.py
+This application allows users to upload a car image and instantly receive:
+
+- ✅ Damage classification  
+- 📊 Confidence score  
+- 📈 Probability distribution across all classes  
+
+The system is designed for real-world use cases like **insurance automation** and **vehicle inspection**.
+
+---
+
+## 🧠 Model Details
+
+- 🔹 Model: **ResNet50 (Transfer Learning)**
+- 🔹 Framework: **PyTorch**
+- 🔹 Dataset: ~1700 labeled images
+- 🔹 Classes (6 categories):
+
+  - Front Normal  
+  - Front Crushed  
+  - Front Breakage  
+  - Rear Normal  
+  - Rear Crushed  
+  - Rear Breakage  
+
+- 🎯 Validation Accuracy: **~80%**
+
+---
+
+## ⚙️ Features
+
+- 🚗 Upload car images easily  
+- 🤖 AI-based damage detection  
+- 📊 Confidence score visualization  
+- 📈 Class probability analytics  
+- 🌙 Modern dark-themed UI  
+- ⚡ Fast inference with optimized model loading  
+
+---
+
+## 🖼️ Sample Output
+
+![App Screenshot](app_screenshot.jpg)
+
+---
+
+## 🛠️ Tech Stack
+
+- Python  
+- PyTorch  
+- Streamlit  
+- Pandas  
+- Pillow  
+
+---
+
+## 🚀 Installation & Setup
+
+1️⃣ Clone the repository:
+
+```bash
+git clone https://github.com/aslam347/Car-damage-detection-AI.git
+cd Car-damage-detection-AI
