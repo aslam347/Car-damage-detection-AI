@@ -2,6 +2,7 @@ import torch
 from torch import nn
 from torchvision import models, transforms
 from PIL import Image
+import streamlit as st   # ✅ ADDED
 
 trained_model = None
 device = torch.device("cpu")
@@ -38,6 +39,19 @@ class CarClassifierResNet(nn.Module):
     def forward(self, x):
         return self.model(x)
 
+
+# ✅ ADDED: cache model loading (NO CHANGE to your logic)
+@st.cache_resource
+def get_model():
+    model = CarClassifierResNet()
+    model.load_state_dict(
+        torch.load("model\\saved_model.pth", map_location=device)
+    )
+    model.to(device)
+    model.eval()
+    return model
+
+
 # ------------------ PREDICT FUNCTION ------------------
 def predict(image_path):
     global trained_model
@@ -55,23 +69,16 @@ def predict(image_path):
 
     image_tensor = transform(image).unsqueeze(0).to(device)
 
+    # ✅ ONLY CHANGE: use cached model
     if trained_model is None:
-        trained_model = CarClassifierResNet()
-        trained_model.load_state_dict(
-            torch.load("model\\saved_model.pth", map_location=device)
-        )
-        trained_model.to(device)
-        trained_model.eval()
+        trained_model = get_model()
 
     with torch.no_grad():
         output = trained_model(image_tensor)
 
-        # probs = torch.softmax(output, dim=1)
-        # confidence = torch.max(probs).item()
         probs = torch.softmax(output, dim=1)
         confidence = torch.max(probs).item()
 
         _, predicted_class = torch.max(output, 1)
 
-        # return class_names[predicted_class.item()], confidence
         return class_names[predicted_class.item()], confidence, probs[0].tolist()
