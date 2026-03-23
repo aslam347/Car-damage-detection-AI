@@ -1,8 +1,11 @@
 import torch
 from torch import nn
 from torchvision import models, transforms
-from PIL import Image
-import streamlit as st   # ✅ ADDED
+from PIL import Image, ImageFile
+import streamlit as st
+
+# 🔥 Fix for corrupted images
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 trained_model = None
 device = torch.device("cpu")
@@ -40,12 +43,12 @@ class CarClassifierResNet(nn.Module):
         return self.model(x)
 
 
-# ✅ ADDED: cache model loading (NO CHANGE to your logic)
+# ------------------ CACHE MODEL ------------------
 @st.cache_resource
 def get_model():
     model = CarClassifierResNet()
     model.load_state_dict(
-        torch.load("model\\saved_model.pth", map_location=device)
+        torch.load("model/saved_model.pth", map_location=device)
     )
     model.to(device)
     model.eval()
@@ -56,7 +59,11 @@ def get_model():
 def predict(image_path):
     global trained_model
 
-    image = Image.open(image_path).convert("RGB")
+    # 🔥 Safe image loading
+    image = Image.open(image_path)
+
+    if image.mode != "RGB":
+        image = image.convert("RGB")
 
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
@@ -69,7 +76,7 @@ def predict(image_path):
 
     image_tensor = transform(image).unsqueeze(0).to(device)
 
-    # ✅ ONLY CHANGE: use cached model
+    # 🔥 Cached model usage
     if trained_model is None:
         trained_model = get_model()
 
