@@ -1,73 +1,155 @@
-# 🚗 Car Damage Detection AI
+# 🚗 Car Damage Detection using Deep Learning
 
-An AI-powered web application that detects and classifies car damage from images using Deep Learning.
+An end-to-end Deep Learning project that detects and classifies **car damage types** from images using a trained ResNet50 model.
 
-🌐 **Live Demo:**  
-https://car-damage-detection-ai-mohamed-aslam.streamlit.app/
-
----
-
-## 📌 Overview
-
-This application allows users to upload a car image and instantly receive:
-
-- ✅ Damage classification  
-- 📊 Confidence score  
-- 📈 Probability distribution across all classes  
-
-The system is designed for real-world use cases like **insurance automation** and **vehicle inspection**.
+This project demonstrates the complete pipeline from model training to deployment using Streamlit.
 
 ---
 
-## 🧠 Model Details
+## 🚀 Live Demo
+👉 https://car-damage-detection-ai-mohamed-aslam.streamlit.app/
 
-- 🔹 Model: **ResNet50 (Transfer Learning)**
-- 🔹 Framework: **PyTorch**
-- 🔹 Dataset: ~1700 labeled images
-- 🔹 Classes (6 categories):
+---
 
-  - Front Normal  
-  - Front Crushed  
-  - Front Breakage  
-  - Rear Normal  
-  - Rear Crushed  
-  - Rear Breakage  
+## 🚀 Project Overview
 
-- 🎯 Validation Accuracy: **~80%**
+Manual vehicle damage inspection is time-consuming and error-prone, especially in insurance and automobile industries.
+
+This application uses Deep Learning to automatically:
+
+- Detect car damage  
+- Classify damage type  
+- Provide confidence scores  
+- Visualize prediction probabilities  
+
+---
+
+## 🎯 Objective
+
+To build a deep learning-based image classification system that:
+
+- Classifies car damage into predefined categories  
+- Provides prediction confidence  
+- Handles real-world image inputs  
+- Deploys as an interactive web application  
+
+---
+
+## 📊 Dataset Details
+
+- Total Images: ~1700  
+- Type: Labeled car damage images  
+- Views: Third-quarter front & rear  
+
+### 🧾 Classes (6 Categories)
+
+- Front Normal  
+- Front Crushed  
+- Front Breakage  
+- Rear Normal  
+- Rear Crushed  
+- Rear Breakage  
+
+---
+
+## 🧠 Model Architecture
+
+- Model: **ResNet50 (Transfer Learning)**  
+- Framework: **PyTorch**  
+- Pretrained on ImageNet  
+- Fine-tuned last layers for classification  
+
+---
+
+## 🔄 Deep Learning Workflow
+
+### 1. Data Preprocessing
+- Image resizing (224x224)  
+- Normalization using ImageNet stats  
+
+### 2. Model Training
+- Transfer Learning using ResNet50  
+- Frozen base layers  
+- Fine-tuned last layers  
+
+### 3. Evaluation
+- Validation Accuracy: **~80%**  
+
+### 4. Inference Pipeline
+- Image upload  
+- Transformation  
+- Model prediction  
+- Softmax probability output  
+
+### 5. Deployment
+- Streamlit-based interactive dashboard  
 
 ---
 
 ## ⚙️ Features
 
-- 🚗 Upload car images easily  
-- 🤖 AI-based damage detection  
-- 📊 Confidence score visualization  
-- 📈 Class probability analytics  
-- 🌙 Modern dark-themed UI  
-- ⚡ Fast inference with optimized model loading  
+- 📤 Upload car images  
+- 🤖 AI-based damage classification  
+- 📊 Confidence score display  
+- 📈 Class probability visualization  
+- 🌙 Modern dark UI with animations  
+- ⚡ Optimized model loading using caching  
 
 ---
 
-## 🖼️ Sample Output
+## 📸 Sample Output
 
 ![App Screenshot](app_screenshot.jpg)
 
 ---
 
-## 🛠️ Tech Stack
+## 🌐 Web Application
+
+The application allows users to:
+
+- Upload a car image  
+- Get predicted damage type  
+- View confidence score  
+- Analyze probability distribution across all classes  
+
+---
+
+## 🛠 Tech Stack
 
 - Python  
 - PyTorch  
+- Torchvision  
 - Streamlit  
 - Pandas  
 - Pillow  
 
 ---
 
-## 🚀 Installation & Setup
+## 📁 Project Structure
 
-1️⃣ Clone the repository:
+Car-damage-detection-AI/
+│
+├── app.py                 # Streamlit UI application
+├── model_helper.py        # Model loading & prediction logic
+│
+├── model/
+│   └── saved_model.pth   # Trained deep learning model
+│
+├── .streamlit/
+│   └── config.toml       # Streamlit configuration (theme)
+│
+├── requirements.txt      # Project dependencies
+├── README.md             # Project documentation
 
-```bash
+## ⚙️ Installation & Run
+
 git clone https://github.com/aslam347/Car-damage-detection-AI.git
 cd Car-damage-detection-AI
+pip install -r requirements.txt
+streamlit run app.py
+
+## 👨‍💻 Author
+
+**Mohamed Aslam M**  
+Machine Learning & AI Enthusiast
+
