@@ -124,32 +124,67 @@ The application allows users to:
 - Pillow  
 
 ---
-
 ## 📁 Project Structure
 
+```bash
 Car-damage-detection-AI/
 │
 ├── app.py                 # Streamlit UI application
 ├── model_helper.py        # Model loading & prediction logic
 │
 ├── model/
-│   └── saved_model.pth   # Trained deep learning model
+│   └── saved_model.pth    # Trained deep learning model
 │
 ├── .streamlit/
-│   └── config.toml       # Streamlit configuration (theme)
+│   └── config.toml        # Streamlit configuration (theme)
 │
-├── requirements.txt      # Project dependencies
-├── README.md             # Project documentation
+├── requirements.txt       # Project dependencies
+├── README.md              # Project documentation
+```
+
+---
 
 ## ⚙️ Installation & Run
 
+```bash
 git clone https://github.com/aslam347/Car-damage-detection-AI.git
 cd Car-damage-detection-AI
 pip install -r requirements.txt
 streamlit run app.py
+```
+
+---
+
+## 📜 Requirements
+
+```txt
+streamlit==1.55.0
+torch==2.2.2
+torchvision==0.17.2
+numpy==1.26.4
+pillow
+pandas
+```
+
+---
+
+## 💡 Key Learnings
+
+- Deep Learning using Transfer Learning (ResNet50)  
+- Image classification using CNN  
+- Data preprocessing for images  
+- Model optimization and inference  
+- Handling real-world deployment issues  
+- Streamlit dashboard development  
+- Debugging dependency conflicts (Torch, NumPy, Python)  
+- End-to-end AI project deployment  
+
+---
 
 ## 👨‍💻 Author
 
 **Mohamed Aslam M**  
-Machine Learning & AI Enthusiast
+AI Engineer | Machine Learning Enthusiast  
+
+
 
