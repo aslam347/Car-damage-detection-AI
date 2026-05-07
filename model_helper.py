@@ -23,7 +23,8 @@ class_names = [
 class CarClassifierResNet(nn.Module):
     def __init__(self, num_classes=6):
         super().__init__()
-        self.model = models.resnet50(weights='DEFAULT')
+        # self.model = models.resnet50(weights='DEFAULT')
+        self.model = models.resnet50(weights=None)
 
         # Freeze layers
         for param in self.model.parameters():
