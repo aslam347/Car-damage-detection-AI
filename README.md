@@ -7,6 +7,7 @@ This project demonstrates the complete pipeline from model training to deploymen
 ---
 
 ## 🚀 Live Demo
+
 👉 https://car-damage-detection-ai-mohamed-aslam.streamlit.app/
 
 ---
@@ -17,10 +18,10 @@ Manual vehicle damage inspection is time-consuming and error-prone, especially i
 
 This application uses Deep Learning to automatically:
 
-- Detect car damage  
-- Classify damage type  
-- Provide confidence scores  
-- Visualize prediction probabilities  
+- Detect car damage
+- Classify damage type
+- Provide confidence scores
+- Visualize prediction probabilities
 
 ---
 
@@ -28,72 +29,73 @@ This application uses Deep Learning to automatically:
 
 To build a deep learning-based image classification system that:
 
-- Classifies car damage into predefined categories  
-- Provides prediction confidence  
-- Handles real-world image inputs  
-- Deploys as an interactive web application  
+- Classifies car damage into predefined categories
+- Provides prediction confidence
+- Handles real-world image inputs
+- Deploys as an interactive web application
 
 ---
 
 ## 📊 Dataset Details
 
-- Total Images: ~1700  
-- Type: Labeled car damage images  
-- Views: Third-quarter front & rear  
+- Total Images: ~1700
+- Type: Labeled car damage images
+- Views: Third-quarter front & rear
 
 ### 🧾 Classes (6 Categories)
 
-- Front Normal  
-- Front Crushed  
-- Front Breakage  
-- Rear Normal  
-- Rear Crushed  
-- Rear Breakage  
+- Front Normal
+- Front Crushed
+- Front Breakage
+- Rear Normal
+- Rear Crushed
+- Rear Breakage
 
 ---
 
 ## 🧠 Model Architecture
 
-- Model: **ResNet50 (Transfer Learning)**  
-- Framework: **PyTorch**  
-- Pretrained on ImageNet  
-- Fine-tuned last layers for classification  
+- Model: **ResNet50 (Transfer Learning)**
+- Framework: **PyTorch**
+- Pretrained on ImageNet
+- Fine-tuned last layers for classification
 
 ---
 
 ## 🔄 Deep Learning Workflow
 
 ### 1. Data Preprocessing
-- Image resizing (224x224)  
-- Normalization using ImageNet stats  
+- Image resizing (224x224)
+- Normalization using ImageNet stats
 
 ### 2. Model Training
-- Transfer Learning using ResNet50  
-- Frozen base layers  
-- Fine-tuned last layers  
+- Transfer Learning using ResNet50
+- Frozen base layers
+- Fine-tuned last layers
 
 ### 3. Evaluation
-- Validation Accuracy: **~80%**  
+- Validation Accuracy: **~80%**
 
 ### 4. Inference Pipeline
-- Image upload  
-- Transformation  
-- Model prediction  
-- Softmax probability output  
+- Image upload
+- Transformation
+- Model prediction
+- Softmax probability output
 
 ### 5. Deployment
-- Streamlit-based interactive dashboard  
+- Streamlit-based interactive dashboard
+- Docker containerization
 
 ---
 
 ## ⚙️ Features
 
-- 📤 Upload car images  
-- 🤖 AI-based damage classification  
-- 📊 Confidence score display  
-- 📈 Class probability visualization  
-- 🌙 Modern dark UI with animations  
-- ⚡ Optimized model loading using caching  
+- 📤 Upload car images
+- 🤖 AI-based damage classification
+- 📊 Confidence score display
+- 📈 Class probability visualization
+- 🌙 Modern dark UI with animations
+- ⚡ Optimized model loading using caching
 
 ---
 
@@ -107,39 +109,76 @@ To build a deep learning-based image classification system that:
 
 The application allows users to:
 
-- Upload a car image  
-- Get predicted damage type  
-- View confidence score  
-- Analyze probability distribution across all classes  
+- Upload a car image
+- Get predicted damage type
+- View confidence score
+- Analyze probability distribution across all classes
 
 ---
 
 ## 🛠 Tech Stack
 
-- Python  
-- PyTorch  
-- Torchvision  
-- Streamlit  
-- Pandas  
-- Pillow  
+- Python
+- PyTorch
+- Torchvision
+- Streamlit
+- Pandas
+- Pillow
+- Docker
 
 ---
+
+## 🐳 Docker Containerization
+
+This project is containerized using Docker for easy sharing and deployment.
+
+### Build Docker Image
+
+```bash
+docker build -t car-damage-detection .
+```
+
+### Run Docker Container
+
+```bash
+docker run -p 8501:8501 car-damage-detection
+```
+
+### Open in Browser
+
+```text
+http://localhost:8501
+```
+
+---
+
+## 🐳 Docker Hub
+
+If the image is pushed to Docker Hub, pull and run it using:
+
+```bash
+docker pull mohamedaslam2001/car-damage-detection
+docker run -p 8501:8501 mohamedaslam2001/car-damage-detection
+```
+
+---
+
 ## 📁 Project Structure
 
 ```bash
 Car-damage-detection-AI/
 │
-├── app.py                 # Streamlit UI application
-├── model_helper.py        # Model loading & prediction logic
+├── app.py                  # Streamlit UI application
+├── model_helper.py         # Model loading & prediction logic
 │
 ├── model/
-│   └── saved_model.pth    # Trained deep learning model
+│   └── saved_model.pth     # Trained deep learning model
 │
 ├── .streamlit/
-│   └── config.toml        # Streamlit configuration (theme)
+│   └── config.toml         # Streamlit configuration (theme)
 │
-├── requirements.txt       # Project dependencies
-├── README.md              # Project documentation
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation
 ```
 
 ---
@@ -170,21 +209,19 @@ pandas
 
 ## 💡 Key Learnings
 
-- Deep Learning using Transfer Learning (ResNet50)  
-- Image classification using CNN  
-- Data preprocessing for images  
-- Model optimization and inference  
-- Handling real-world deployment issues  
-- Streamlit dashboard development  
-- Debugging dependency conflicts (Torch, NumPy, Python)  
-- End-to-end AI project deployment  
+- Deep Learning using Transfer Learning (ResNet50)
+- Image classification using CNN
+- Data preprocessing for images
+- Model optimization and inference
+- Handling real-world deployment issues
+- Streamlit dashboard development
+- Debugging dependency conflicts (Torch, NumPy, Python)
+- End-to-end AI project deployment
+- Docker containerization
 
 ---
 
 ## 👨‍💻 Author
 
 **Mohamed Aslam M**  
-AI Engineer | Machine Learning Enthusiast  
-
-
-
+AI Engineer | Machine Learning Enthusiast
